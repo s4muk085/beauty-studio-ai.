@@ -1,29 +1,11 @@
-# Beauty Studio AI — V1
+# Beauty Studio AI Pro V2.5 — Premium Design Library
 
-Aplicativo responsivo para criar posts de estética/beleza com editor Canvas e geração opcional de imagens com Cloudflare Workers AI.
+**12 novos layouts originais** (não reproduções do Canva) com camadas editáveis e galerias de miniaturas, incluindo Editorial Chic, Soft Luxury, Fashion Impact, Beauty Collage, Lifestyle Premium, Commercial Beauty, Agenda Premium, Antes e Depois, Promoção Impacto, Conteúdo Educativo, Serviços Premium e Depoimentos.
 
-## O que funciona
-- Templates locais imediatos, 3 composições, paletas, categorias de beleza.
-- Editar título, subtítulo, preço, botão, nome da marca, cores e formato.
-- Enviar foto própria e logo (ficam no navegador); gerar background via Cloudflare (após configurar conta).
-- Preview em canvas, exportar PNG 1080×1350, 1080×1920 ou 1080×1080.
-- Salvar/restaurar projeto localmente, gerar sugestões de legendas e copiar.
+Cada miniatura é uma representação gráfica simples da categoria, não uma foto gerada por IA. Os posts finais ficam completos com textos, cores, molduras, ofertas e CTAs. Para imagens fotográficas, use **Gerar foto com IA** ou upload próprio. As fotos são raster e não se tornam camadas internas editáveis.
 
-## Rodar localmente
-1. Instale Node.js 20+.
-2. Rode `npm install` e `npm run dev`.
-3. Para testar API IA localmente, use `vercel dev` com variáveis de ambiente configuradas. `vite` isolado não disponibiliza /api/generate.
+## Instalação
+Substitua `index.html`, `package.json` e `api/generate.mjs` no repositório conectado à Vercel. Preserve a pasta `api`. O projeto funciona como site estático com função serverless em `/api/generate` na Vercel, sem comando de build. Não inclua segredos no GitHub.
 
-## Publicar na Vercel
-1. Suba os arquivos em um repositório GitHub.
-2. Importe o repositório na Vercel, framework Vite; Build command: `npm run build`, output: `dist`.
-3. Para IA, crie conta Cloudflare, acesse Workers AI > Use REST API, obtenha Account ID e API Token com permissão Workers AI.
-4. Configure `CLOUDFLARE_ACCOUNT_ID` e `CLOUDFLARE_API_TOKEN` em Settings > Environment Variables na Vercel; faça novo deploy.
-5. Sem essas variáveis, o editor e os templates funcionam; botão Gerar com IA informa a falta de configuração.
-
-## Importante
-- Vercel Hobby é restrito a uso pessoal/não comercial; para explorar comercialmente, escolha hospedagem/contrato adequado.
-- Cloudflare oferece cota diária limitada, não geração ilimitada.
-- Rate limit local de exemplo em `api/generate.js` não é proteção suficiente para produção pública. Antes de liberar acesso geral, adicione autenticação, rate limiting persistente, cotas por conta, verificação de abuso e logs.
-- Projetos são salvos apenas neste navegador; backup/contas/sincronização precisam de backend.
-- Imagens de resultados estéticos devem ser apresentadas como ilustrativas quando geradas por IA; não alegar resultados clínicos reais.
+## Observações
+A biblioteca e os projetos são locais ao navegador; exporte seus backups JSON. A geração por Cloudflare ainda depende das cotas do modelo e precisa de autenticação e limite persistente antes de disponibilizar a terceiros. Os 12 layouts usam a mesma fotografia de campanha escolhida ou gerada. Miniaturas dos templates são abstrações visuais, não a renderização integral do post. Teste a implantação antes de considerar o app pronto.
